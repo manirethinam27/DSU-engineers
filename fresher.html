@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Engineers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./src/DSU Eng.png" type="image/x-icon">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+    <section>
+        <div class="intro">
+            <div>
+                <img src="src/DSU Eng.png" alt="dsu Engineers">
+            </div>
+            <h1>DSU ENGINEERS</h1>
+            <h3>Welcome Fresher..</h3>
+        </div>
+        <form id="fresher-form" name="fresher-form">
+            
+            <div>
+                <label for="name">Name:</label>
+                <input name="name" id="name" type="text" placeholder="Your Name" required>
+            </div>
+            
+            <div>
+                <label for="dept">Department:</label>
+                <select name="dept" id="dept">
+                    <option value="it">IT</option>
+                    <option value="aids">AIDS</option>
+                    <option value="aiml">AIML</option>
+                    <option value="iot">IOT</option>
+                    <option value="cse">CSE</option>
+                    <option value="bme">BME</option>
+                    <option value="biotech">BIOTECH</option>
+                    <option value="cyc">CYS</option>
+                    <option value="eee">EEE</option>
+                    <option value="ece">ECE</option>
+                    <option value="mech">MECHANICAL</option>
+                    <option value="agri">AGRI</option>       
+                </select>
+            </div>
+            <div>
+                <label for="about">opinion:</label>
+                <textarea name="about" id="about" placeholder="What do you think aboout DSu"></textarea>
+            </div>
+            <div>
+                <button type="submit">submit</button>
+            </div>
+        </form>
+    </section>
+
+
+    <script>
+        (function () {
+            emailjs.init("v6ePnnmuB1L6gjXUA"); 
+        })();
+
+        document.getElementById("fresher-form").addEventListener("submit", function (event) {
+            event.preventDefault(); 
+
+            emailjs.sendForm("service_23q2hnj", "template_2fa9f7g", this)
+            .then(function () {
+            alert("form sent successfully!");
+                document.getElementById("fresher-form").reset(); 
+            }, function (error) {
+                alert("Failed to send feedback. Please try again.");
+                console.error(error);
+            });
+        });
+</script>
+
+
+</body>
+</html>
